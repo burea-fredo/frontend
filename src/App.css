@@ -1,0 +1,48 @@
+.Home {
+  display: flex;
+  height: 100vh;
+}
+
+.NoteList_Title {
+  color: white;
+  background-color: black;
+  margin:0;
+  border:1px solid black;
+}
+
+.NoteList_List{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+.NoteList_List_Item {
+  background-color: lightgrey;
+  border: 1px lightgrey solid;
+}
+
+.NoteList_List_Item p {
+  color: gray;
+}
+
+.Markdown {
+  width: 100vw; 
+  display: flex;
+}
+
+.Markdown_Content{
+  width: 60%; 
+  display: flex;
+  resize: none;
+  border-color: black;
+  border-style: solid;
+  position: static;
+
+}
+
+.Markdown_Content textarea{
+  width: 100%; 
+  display: flex;
+  resize: none;
+  border: none;
+}
