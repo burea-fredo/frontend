@@ -22,17 +22,17 @@ export default class Home extends Component {
     }
 
     selectNote = (note) => {
-        this.setState({ selectedNote: note})
+        this.setState({ selectedNote: note })
     }
 
     newNote = (note) => {
         this.getNotes()
-        this.setState({selectedNote: note})
+        this.setState({ selectedNote: note })
     }
 
     deleteNote = async (note) => {
         await axios.delete("http://localhost:4000/api/" + note._id)
-        this.setState({ selectedNote: null})
+        this.setState({ selectedNote: null })
         this.getNotes()
     }
 
@@ -40,10 +40,11 @@ export default class Home extends Component {
         return (
             <div className="Home">
                 <NoteList notes={this.state.notes}
-                    selectNote={this.selectNote} 
+                    selectNote={this.selectNote}
                     getNotes={this.getNotes}
-                    deleteNote={this.deleteNote}/>
-                <MarkDown selectedNote={this.state.selectedNote}/>
+                    deleteNote={this.deleteNote} />
+                <MarkDown selectedNote={this.state.selectedNote}
+                    getNotes={this.getNotes} />
             </div>
         )
     }

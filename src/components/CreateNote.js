@@ -13,16 +13,16 @@ export default class CreateNote extends Component {
 
     onSubmit = async e => {
         e.preventDefault();
-        await  axios.post("http://localhost:4000/api", {
+        await axios.post("http://localhost:4000/api", {
             title: this.state.title
         })
-        .then(() => {
-            this.props.getNotes();
-            this.state.title = '';
-
-        }).catch(() => {
-            alert("Duplicated key")
-        })
+            .then(() => {
+                this.props.getNotes();
+                this.state.title = '';
+            })
+            .catch(() => {
+                alert("Duplicated title")
+            })
     }
 
 

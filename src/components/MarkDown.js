@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+
 import { Remarkable } from 'remarkable';
 
 export default class Markdown extends Component {
@@ -18,18 +19,20 @@ export default class Markdown extends Component {
         return { __html: this.md.render(this.state.value) };
     }
 
-    updateNote = async (note) => {
-        if (this.state.value) {
-            note.content = this.state.value;
-            await axios.put("http://localhost:4000/api/" + note._id, note);
+    updateNote = async (prevNote) => {
+        if (this.state.value !== prevNote.content) {
+            prevNote.content = this.state.value;
+            await axios.put("http://localhost:4000/api/" + prevNote._id,
+                { title: prevNote.title, content: this.state.value });
         }
     }
 
 
     componentDidUpdate = (prevProps) => {
-        if (prevProps.selectedNote !== this.props.selectedNote) {
-            if (prevProps.selectedNote) {
-                this.updateNote(prevProps.selectedNote);
+        var prevNote = prevProps.selectedNote
+        if (prevNote !== this.props.selectedNote) {
+            if (prevNote) {
+                this.updateNote(prevNote);
             }
 
             if (this.props.selectedNote !== null) {
