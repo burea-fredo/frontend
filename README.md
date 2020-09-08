@@ -8,9 +8,9 @@ Como ejecutar el backend y la base de datos: [Markdown editor backend](https://g
 
 Stack:
 
-- React 16.13.1 para el frontend
-- Node para el backend
-- Mongo para guardar los archivos
+- **React 16.13.1** para el frontend
+- **Node** para el backend
+- **Mongo** para guardar los archivos
 
 El backend y la base de datos se pueden ejecutan con Docker 
 
